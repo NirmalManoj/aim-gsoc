@@ -1,12 +1,17 @@
+def HCF(num1, num2): '''This line will help you get the Highest common factor'''
+    if num2==0:
+        return num1
+    else:
+        return HCF(num2,num1%num2)
 num1 = int(input("Enter first number: "))
 num2 = int(input("Enter second number: "))
 
 # greatest common divisor
-# result = num1 + num2
+result = HCF(num1, num2)
 
-# print("The GCD of", num1, "and", num2, "is", result)
-# my chainges will be here
-""" 
+print("The GCD of", num1, "and", num2, "is", result)
+
+""" The above code will work in O(log(n)) Time complexity
     references:
     https://www.cuemath.com/numbers/greatest-common-divisor-gcd/
     https://www.cuemath.com/numbers/lcm-least-common-multiple/
@@ -38,6 +43,8 @@ num2 = int(input("Enter second number: "))
     list the factors of a:1,2
     list the factors of b:1,5
 """
+'''
+This code will give the answer in the O(n) complexity it will even better also
 HCF=None
 common_factors=[]
 if num1>num2:
@@ -53,3 +60,4 @@ LCM=(num1*num2)//HCF
 #print(LCM)
 GCD=(num1*num2)//LCM
 print("The GCD of", num1, "and", num2, "is", GCD)
+'''

@@ -1,7 +1,10 @@
-num1 = int(input("Enter first number: "))
-num2 = int(input("Enter second number: "))
+n1 = int(input("Enter first number: "))
+n2 = int(input("Enter second number: "))
 
 # greatest common divisor
-result = num1 + num2
-
-print("The GCD of", num1, "and", num2, "is", result)
+while n1%n2!=0:
+    r=n1%n2
+    n1=n2
+    n2=r
+gcd=n2
+print("GCD:",gcd)

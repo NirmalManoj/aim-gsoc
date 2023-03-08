@@ -1,6 +1,6 @@
 # Aim GSoC
 
-This repository contains tasks that are designed to help students become familiar with the process of contributing to an open source organization. It is recommended to watch session #6 before attempting to solve any tasks, and then to look at the issues section of the repository (https://github.com/NirmalManoj/aim-gsoc/issues) to find tasks to work on and learn from.
+This repository contains tasks that designed to help students become familiar with the process of contributing to an open source organization. It is recommended to watch session #6 before attempting to solve any tasks, and then to look at the issues section of the repository (https://github.com/NirmalManoj/aim-gsoc/issues) to find tasks to work on and learn from.
 
 <!-- In the session, we have covered the following.
 

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Video Streaming Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+            <a class="navbar-brand heading">Cine Vision</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link links" aria-current="page" href="/customer">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link links" href="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link links" href="/playlist">Your Playlist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link links" href="/aboutus">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link links" href="/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container video-streaning-page-container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="video-container">
+                    <div id="videoOverlay" class="video-overlay" onclick="playVideo()">
+                        <a id="play-video" class="video-play-button" data-toggle="modal"
+                            data-target="#savoybeachhotel">
+                            <span></span>
+                        </a>
+                    </div>
+                    <video id="myVideo" width="640" height="360" controls controlsList="nodownload" onplay="hideOverlay()" onpause="showOverlay()"
+                    poster="../images/finding-nemo-poster.jpeg">
+                    <source
+                        src="https://ibmcloudbucket1.s3.us-south.cloud-object-storage.appdomain.cloud/@TamilCartoonFlicks%20Finding%20Nemo%20(2003)%20Tamil%20Multi.mkv"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                </div>
+                <div class="movie-title">
+                    <h3>Finding Nemo</h3>
+                    <h6>Father-Son | Adventure</h5>
+                </div>
+                <div class="chat-container" style="background-color: aliceblue;border-radius: 20px;">
+                    <h5 class="mx-auto" style="color: green; padding-top: 4px;">Start chatting</h4>
+                    <div id="chatBox" class="chat chatBox"></div>
+                    <div id="inputBox" class="inputBox">
+                        <input type="text" id="messageInput" class = "messageInput" placeholder="Type your message here">
+                        <button id="sendButton" class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="recommended-container">
+                    <section class="cards-collection">
+                        <div class="cards">
+                            <div class="card" id="The_Lion_King">
+                                <img src="../images/The_Lion_King.webp">
+                                <div class="content">
+                                    <h1>The Lion King</h1>
+                                    <p>Classic tale of a young lion's journey to reclaim his rightful place as king, navigating a world of betrayal, friendship, and self-discovery, set against the backdrop of the majestic African savanna.</p>
+                                    <div class="rating">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                                        <h2>8.0 RATING</h2>
+                                    </div>
+                                    <div class="buttons">
+                                        <button class="play"><i class="fa fa-play"></i> <a class="play-button" href="sp_lionking.html"> PLAY</a></button>
+                                        <button class="plus" onclick="addToPlaylist('The_Lion_King')"><i class="fa fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card" id="nemo">
+                                <img src="../images/nemo1.jpeg">
+                                <div class="content">
+                                    <h1>Finding Nemo</h1>
+                                    <p>Heartwarming adventure of a timid clownfish, Marlin, and his spirited yet forgetful friend, Dory, as they embark on a perilous journey across the ocean to find Marlin's lost son, Nemo. </p>
+                                    <div class="rating">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                                        <h2>8.0 RATING</h2>
+                                    </div>
+                                    <div class="buttons">
+                                        <button class="play"><i class="fa fa-play"></i> <a class="play-button" href="sp_findingnemo.html"> PLAY</a></button>
+                                        <button class="plus" onclick="addToPlaylist('nemo')"><i class="fa fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card" id="toy_story">
+                                <img src="../images/toy_story.jpg">
+                                <div class="content">
+                                    <h1>Toy Story</h1>
+                                    <p>Imaginative journey of beloved toys, led by Woody and Buzz Lightyear, as they navigate the challenges of friendship and rivalry in the dynamic world of their human owner, Andy.</p>
+                                    <div class="rating">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                                        <h2>8.0 RATING</h2>
+                                    </div>
+                                    <div class="buttons">
+                                        <button class="play"><i class="fa fa-play"></i> <a class="play-button" href="sp_toystroy.html"> PLAY</a></button>
+                                        <button class="plus" onclick="addToPlaylist('toy_story')"><i class="fa fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <section class="footer">
+            <div class="category-header">
+                <h1 class="view-all">Cine Vision</h1>
+                <h1 class="view-all">Follow us on <i class="fa-brands fa-facebook-f"></i> <i
+                        class="fa-brands fa-instagram"></i> <i class="fa-brands fa-threads"></i> <i
+                        class="fa-brands fa-twitter"></i> <i class="fa-brands fa-youtube"></i></h1>
+            </div>
+            <hr>
+            <div class="footer-cards">
+                <div class="footer-card">
+                    <h1>Movies</h1>
+                    <h2>Action</h2>
+                    <h2>Comedy</h2>
+                    <h2>Horror</h2>
+                    <h2>Animation</h2>
+                    <h2>Fantasy</h2>
+                </div>
+                <div class="footer-card">
+                    <h1>Series</h1>
+                    <h2>Reality Shows</h2>
+                    <h2>Classic Shows</h2>
+                    <h2>Valentine Shows</h2>
+                    <h2>Comedy</h2>
+                    <h2>Fantasy</h2>
+                </div>
+                <div class="footer-card">
+                    <h1>Support</h1>
+                    <h2>General Info</h2>
+                    <h2>Privacy Policy</h2>
+                    <h2>Terms of service</h2>
+                    <h2>Help Center</h2>
+                </div>
+                <div class="footer-card">
+                    <h1>Support</h1>
+                    <h2>consumersuprtcinevision23@gmail.com</h2>
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+
+</html>

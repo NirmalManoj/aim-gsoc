@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+    <title>Cine Vision</title>
+    <style>
+        .profile-main-container {
+            font-family: 'Arial', sans-serif;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            
+        }
+
+        @media (max-width:768px) {
+            .profile-main-container {
+                font-family: 'Arial', sans-serif;
+                background-color: rgba(0, 0, 0, 0.5);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+        }
+
+        .profile-section {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: ;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .greeting {
+            color:rgb(254, 184, 1);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #ffffff;
+            font-size: 16px;
+        }
+
+        .profile-container {
+            margin-top: 30px;
+           
+        }
+
+        .profile-info {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        #userId {
+            color: #007bff;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .profile-link {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .profile-link:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 600px) {
+            .profile-section {
+                padding: 20px;
+                max-width: 100%;
+            }
+        }
+        .greeting-container{
+            margin-right: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid">
+                <a class="navbar-brand heading">Cine Vision</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link links" aria-current="page" href="/customer">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link links" href="/profile">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link links" href="/playlist">Your Playlist</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link links" href="/aboutus">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link links" href="/contact">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="profile-main-container">
+        <div class="greeting-container">
+            <h4 class="greeting">Hello, {{session["name"]}}!</h4>
+            <p class="description">This is your profile page. You can see and manage your profile and playlist.</p>
+        </div>
+        <section class="profile-section">
+            <h2 class="text-center">Profile</h2>
+            <div class="profile-container">
+                <h3 class="profile-info">Name: {{session["name"]}}</h3>
+                <h3 class="profile-info">User ID: <span id="userId"></span></h3>
+                <h3 class="profile-info">Subscription Type: Free</h3>
+                <h3 class="profile-info">Your Playlist: <a class="profile-link" href="/playlist">Click Here</a></h3>
+                <div class="text-center">
+                 <a href="{{url_for('logout')}}" class="btn btn-primary btn-block ">Logout</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <section class="footer">
+        <div class="category-header">
+            <h1 class="view-all">Cine Vision</h1>
+            <h1 class="view-all">Follow us on <i class="fa-brands fa-facebook-f"></i> <i class="fa-brands fa-instagram"></i> <i class="fa-brands fa-threads"></i> <i class="fa-brands fa-twitter"></i> <i class="fa-brands fa-youtube"></i></h1>
+        </div>
+        <hr>
+        <div class="footer-cards">
+            <div class="footer-card">
+                <h1>Movies</h1>
+                <h2>Action</h2>
+                <h2>Comedy</h2>
+                <h2>Horror</h2>
+                <h2>Animation</h2>
+                <h2>Fantasy</h2>
+            </div>
+            <div class="footer-card">
+                <h1>Series</h1>
+                <h2>Reality Shows</h2>
+                <h2>Classic Shows</h2>
+                <h2>Valentine Shows</h2>
+                <h2>Comedy</h2>
+                <h2>Fantasy</h2>
+            </div>
+            <div class="footer-card">
+                <h1>Support</h1>
+                <h2>General Info</h2>
+                <h2>Privacy Policy</h2>
+                <h2>Terms of service</h2>
+                <h2>Help Center</h2>
+            </div>
+            <div class="footer-card">
+                <h1>Support</h1>
+                <h2>consumersuprtcinevision23@gmail.com</h2>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <h1 class="text-warning">Generated User ID: <span id="userId" ></span></h1>
+
+    <script>
+        // Generate a unique user ID
+        function generateUserID() {
+            var uniqueID = 'user_' + Date.now();
+            return uniqueID;
+        }
+
+        // Display the generated user ID on the web page
+        document.getElementById('userId').innerText = generateUserID();
+    </script>
+
+
+
+</body>
+
+</html>
